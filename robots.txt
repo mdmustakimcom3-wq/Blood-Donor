@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mdmustakimcom3-wq.github.io/-Blood-Donor/sitemap.xml
