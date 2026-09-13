@@ -2782,3 +2782,103 @@ img{
     }
 
 }
+/* =====================================================
+   🩸 HEADLINE + HEADER SPACE
+   ===================================================== */
+
+/* উপরে headline-এর জন্য জায়গা */
+body{
+    padding-top:28px;
+}
+
+/* আপনার Header আবার একদম স্বাভাবিক জায়গা থেকে শুরু হবে */
+.site-header{
+    margin-top:0;
+}
+
+/* Running headline */
+body::before{
+    content:"🩸  আপনার এক ব্যাগ রক্ত, কারও নতুন জীবন   ✦   ❤️  আজই রক্তদাতা হিসেবে রেজিস্ট্রেশন করুন   ✦   📝  প্রয়োজনের কথা পোস্ট করুন   ✦   🤝  পাশে থাকুন, জীবন বাঁচান   ✦   📍  নেত্রকোণা Blood Donor";
+
+    position:fixed;
+    top:3px;
+    left:0;
+
+    width:max-content;
+    white-space:nowrap;
+
+    z-index:99999;
+    pointer-events:none;
+
+    font-family:"Noto Sans Bengali",sans-serif;
+    font-size:15px;
+    font-weight:900;
+
+    color:#b5122a;
+
+    text-shadow:
+        1px 1px 0 #fff,
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        0 2px 6px rgba(0,0,0,.18);
+
+    animation:
+        headlineMove 28s linear infinite,
+        headlineGlow 3s ease-in-out infinite;
+}
+
+
+/* Smooth movement */
+@keyframes headlineMove{
+    from{
+        transform:translate3d(100vw,0,0);
+    }
+
+    to{
+        transform:translate3d(-100%,0,0);
+    }
+}
+
+
+/* Premium glow */
+@keyframes headlineGlow{
+    0%,100%{
+        filter:drop-shadow(0 0 0 rgba(220,20,50,0));
+    }
+
+    50%{
+        filter:drop-shadow(0 0 6px rgba(220,20,50,.35));
+    }
+}
+
+
+/* 📱 Mobile */
+@media(max-width:600px){
+
+    body{
+        padding-top:25px;
+    }
+
+    body::before{
+        top:3px;
+        font-size:12px;
+        animation:
+            headlineMove 24s linear infinite,
+            headlineGlow 3s ease-in-out infinite;
+    }
+}
+
+
+/* 📱 Small mobile */
+@media(max-width:380px){
+
+    body{
+        padding-top:24px;
+    }
+
+    body::before{
+        font-size:11px;
+        animation-duration:21s;
+    }
+}
