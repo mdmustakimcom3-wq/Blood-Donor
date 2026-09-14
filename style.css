@@ -1823,31 +1823,61 @@ img{
 .creator-card{
     position:relative;
     overflow:hidden;
-    background:#fff;
-    border:1px solid #eee;
+    background:linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #fffafb 100%
+    );
+    border:1px solid rgba(201,21,43,.10);
     border-radius:30px;
-    padding:45px;
+    padding:50px 45px;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:35px;
+    gap:40px;
     text-align:left;
     box-shadow:
-        0 20px 50px rgba(0,0,0,.06);
+        0 25px 60px rgba(201,21,43,.10),
+        0 5px 18px rgba(0,0,0,.05);
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.creator-card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 30px 70px rgba(201,21,43,.16),
+        0 8px 22px rgba(0,0,0,.06);
+}
+
+.creator-glow{
+    position:absolute;
+    width:260px;
+    height:260px;
+    left:-90px;
+    top:-90px;
+    background:radial-gradient(
+        circle,
+        rgba(201,21,43,.10),
+        transparent 70%
+    );
+    border-radius:50%;
+    pointer-events:none;
 }
 
 .creator-decoration{
     position:absolute;
-    right:25px;
-    top:15px;
-    font-size:80px;
-    opacity:.04;
+    right:30px;
+    top:20px;
+    font-size:90px;
+    opacity:.035;
 }
 
 .creator-photo-wrap{
     position:relative;
-    width:145px;
-    height:145px;
+    width:155px;
+    height:155px;
     flex-shrink:0;
     display:grid;
     place-items:center;
@@ -1856,35 +1886,60 @@ img{
 .creator-photo{
     position:relative;
     z-index:3;
-    width:110px;
-    height:110px;
+    width:118px;
+    height:118px;
     object-fit:cover;
     border-radius:50%;
     border:5px solid #fff;
     box-shadow:
-        0 10px 30px rgba(201,21,43,.2);
+        0 12px 32px rgba(201,21,43,.25);
 }
 
 .creator-ring{
     position:absolute;
-    border:1px solid #e8a6ae;
+    border:1px solid rgba(201,21,43,.35);
     border-radius:50%;
 }
 
 .ring-one{
-    width:135px;
-    height:135px;
+    width:140px;
+    height:140px;
     animation:spin 12s linear infinite;
 }
 
 .ring-two{
-    width:150px;
-    height:150px;
+    width:156px;
+    height:156px;
     border-style:dashed;
-    animation:spinReverse 15s linear infinite;
+    border-color:rgba(255,193,7,.5);
+    animation:spinReverse 16s linear infinite;
 }
 
-.creator-text span{
+.creator-verified{
+    position:absolute;
+    z-index:4;
+    bottom:6px;
+    right:6px;
+    width:30px;
+    height:30px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,#c9152b,#ff4560);
+    color:#fff;
+    border:3px solid #fff;
+    border-radius:50%;
+    font-size:14px;
+    font-weight:900;
+    box-shadow:0 4px 12px rgba(201,21,43,.4);
+}
+
+.creator-text{
+    position:relative;
+    z-index:2;
+}
+
+.creator-tag{
+    display:inline-block;
     font-size:10px;
     letter-spacing:3px;
     color:#c9152b;
@@ -1892,26 +1947,47 @@ img{
 }
 
 .creator-text h2{
-    color:#222;
-    font-size:38px;
-    margin:3px 0;
+    color:#1a1a1a;
+    font-size:40px;
+    font-weight:900;
+    margin:6px 0 12px;
+    letter-spacing:-1px;
 }
 
-.creator-text p{
+.creator-role-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:14px;
+}
+
+.creator-role{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:6px 12px;
+    background:#fff0f2;
     color:#c9152b;
-    font-size:12px;
+    border:1px solid rgba(201,21,43,.15);
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
 }
 
 .creator-text strong{
     display:block;
-    margin-top:10px;
+    color:#333;
+    font-size:14px;
+    font-weight:700;
 }
 
 .creator-text small{
     display:block;
     color:#888;
-    margin-top:7px;
-    font-size:11px;
+    margin-top:6px;
+    font-size:12px;
+    line-height:1.7;
+    max-width:420px;
 }
 
 
@@ -2526,7 +2602,16 @@ img{
     .creator-card{
         flex-direction:column;
         text-align:center;
-        padding:35px 20px;
+        padding:40px 22px;
+        gap:22px;
+    }
+
+    .creator-role-row{
+        justify-content:center;
+    }
+
+    .creator-text small{
+        max-width:100%;
     }
 
     .footer-content{
@@ -2786,19 +2871,19 @@ img{
    🩸 HEADLINE + HEADER SPACE
    ===================================================== */
 
-/* উপরে headline-এর জন্য জায়গা */
+/* উপরে headline-এর জন্য জায়গা */
 body{
     padding-top:28px;
 }
 
-/* আপনার Header আবার একদম স্বাভাবিক জায়গা থেকে শুরু হবে */
+/* আপনার Header আবার একদম স্বাভাবিক জায়গা থেকে শুরু হবে */
 .site-header{
     margin-top:0;
 }
 
 /* Running headline */
 body::before{
-    content:"🩸  আপনার এক ব্যাগ রক্ত, কারও নতুন জীবন   ✦   ❤️  আজই রক্তদাতা হিসেবে রেজিস্ট্রেশন করুন   ✦   📝  প্রয়োজনের কথা পোস্ট করুন   ✦   🤝  পাশে থাকুন, জীবন বাঁচান   ✦   📍  নেত্রকোণা Blood Donor";
+    content:"🩸  আপনার এক ব্যাগ রক্ত, কারও নতুন জীবন   ✦   ❤️  আজই রক্তদাতা হিসেবে রেজিস্ট্রেশন করুন   ✦   📝  প্রয়োজনের কথা পোস্ট করুন   ✦   🤝  পাশে থাকুন, জীবন বাঁচান   ✦   📍  নেত্রকোণা Blood Donor";
 
     position:fixed;
     top:3px;
